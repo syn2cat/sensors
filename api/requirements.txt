@@ -1,0 +1,4 @@
+PyYAML
+pymongo
+flask
+Flask-RESTful

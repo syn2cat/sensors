@@ -1,0 +1,19 @@
+api:
+  build: api/
+  ports:
+    - "172.17.42.1:3031:3031"
+  links:
+    - mongodb:db
+  volumes_from:
+    - sensors-data
+collect:
+  build: collect/
+  links:
+    - mongodb:db
+  volumes_from:
+    - sensors-data
+mongodb:
+  image: mongo
+  command: mongod --auth
+  volumes_from:
+    - sensors-mongodb-data
